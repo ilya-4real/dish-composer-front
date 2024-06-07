@@ -7,6 +7,7 @@ import Favorite from './components/favorite';
 import Compounds from './components/compounds';
 import Random from './components/random';
 import RecipeDetail from './components/recipedetail';
+import OwnLiked from './components/own-liked';
 
 const tg = window.Telegram.WebApp;
 
@@ -22,7 +23,8 @@ function App() {
       <div className="wrapper">
         <Routes>
           <Route exact path='/' element={<Popular/>}></Route>
-          <Route exact path='/favorite' element={<Favorite />}></Route>
+          <Route exact path="/my/own" element={<Favorite />}></Route>
+          <Route exact path="my/liked" element={<Favorite />}></Route>
           <Route exact path='/compounds' element={<Compounds/>}></Route>
           <Route exact path='/random' element={<Random/>}></Route>
           <Route exact path='/recipe/:id/' element={<RecipeDetail/>}></Route>

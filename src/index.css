@@ -26,12 +26,14 @@
   flex-direction: column;
   min-height: 100vh;
   padding-top: 40px;
+  background-color: #FFE5B4;
 }
 
 main {
   flex: 1;
   padding: 20px;
 }
+
 
 .bottom-nav {
   display: flex;
@@ -50,12 +52,13 @@ main {
   text-decoration: none;
   color: black;
   padding: 10px;
+  background-color: #e2ca9f;
 }
 
 
 
 .bottom-nav a.active {
-  background-color: #ffffff;
+  background-color: #FFE5B4;
   color: black;
 }
 
@@ -64,8 +67,11 @@ main {
   margin: auto;
   margin-top: 10px;
   width: 95%;
-  box-shadow: 0px 4px 5px #c8c8c7;
+  box-shadow: 0px 4px 5px #cd942a;
   border: solid 1px #f0f0ed;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
 }
 
 .like-btn {
@@ -106,13 +112,14 @@ main {
   margin: 0 auto;
   margin-top: 30px;
   width: 80%;
-  background-color: white;
+  background-color: #ffb936;
+  position: relative;
   border:solid 1px #e3e3e0;
   border-radius: 10px;
 }
 
 .active-btn:active {
-  background-color: #e3e3e0;
+  background-color: #cd942a;
   box-shadow: 0px 0px;
   transform: translateY(3px);
 }
@@ -120,7 +127,10 @@ main {
 .recipe-detail {
   margin: 0 auto;
   width: 95%;
-  border: solid 1px #e3e3e0;
+  border: solid 1px orange;
+  border-radius: 5px;
+  background-color: white;
+  padding: 15px;
 }
 
 .recipe-card h3 {
@@ -130,17 +140,16 @@ main {
 .ingredient {
   display: flex;
   flex-direction: row;
-  padding: 3px;
 }
 .ingredient-title {
   width: 70%;
-  border: solid 1px #e3e3e0;
+  border: solid 1px #cd942a;
   text-align: center;
 }
 
 .ingredient-weight {
   width: 30%;
-  border: solid 1px #e3e3e0;
+  border: solid 1px #cd942a;
   text-align: center;
 }
 
@@ -158,6 +167,7 @@ a {
 .recipe-header {
   display: flex;
   flex-direction: row;
+  margin-bottom: 5px;
 }
 
 .empty {
@@ -173,13 +183,14 @@ a {
   margin: auto auto;
   display: flex;
   flex-direction: row;
-  box-shadow: 0px 5px 10px #c8c8c7;
+  box-shadow: 0px 5px 10px #cd942a;
+  border-radius: 5px;
 }
 
 .search input {
   width: 90%;
   padding: 4px;
-  border: solid 1px #c8c8c7;
+  border: solid 1px orange;
   border-right: none;
   border-radius: 5px 0 0 5px;
   text-align: center; 
@@ -191,7 +202,50 @@ a {
 
 .search-btn {
   border-radius: 0 5px 5px 0;
-  border: solid 1px #c8c8c7;
+  border: solid 1px orange;
   width: 10%;
-  background-color: #c8c8c7;
+  background-color: orange;
+}
+
+.favorite-header{
+  margin: 0 auto;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  height: 35px;
+}
+
+.main-color {
+  background-color: #FFE5B4;
+}
+
+.inactive-main-color {
+  background-color: #e2ca9f;
+}
+
+.favorite-header-item {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  text-align: center;
+  width: 50%;
+}
+
+.compounds {
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.compound-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 5px #cd942a;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
 }

@@ -6,7 +6,7 @@ const Random = () => {
 
     return ( 
         <div className="random-card">
-            <img src="../public/surprise-box.png" alt="" width='300'/>
+            <img src="/surprise-box.png" alt="" width='300'/>
             <button className='active-btn' onClick={onRandom}>Generate</button>
         </div>
      );
