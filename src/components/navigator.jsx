@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const Navigator = () => {
     const location = useLocation();
     const my_path = location.pathname.includes("/my")
-    console.log(my_path)
     return (
         <>
             <footer className="bottom-nav">

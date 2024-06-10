@@ -1,36 +1,26 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const RecipeCard = () => {
-    const [liked, setLiked] = useState(false);
-    const [likes, setLikes] = useState(0);
-
-    const Onlike = () => {
-        if (liked === true) {
-            setLiked(false)
-            setLikes(likes - 1)
-        } else{
-            setLiked(true)
-            setLikes(likes + 1)
-        }
-        console.log(liked)
-    }
+const RecipeCard = ({ recipe }) => {
 
     return ( 
         <div className="recipe-card">
+        <Link to={`/recipe/${recipe.oid}`}>
             <div className="recipe-header">
                 <h4>
-                    Title
+                    {recipe.title}
                 </h4>
             </div>
             <div className="recipe-content">
-                <p>description</p>
+                <p>{recipe.description}</p>
             </div>
             <div className="recipe-footer">
-                <div className="author footer-item">author: @il_ya_420</div>
+                <div className="author footer-item">author: @{recipe.author}</div>
                 <div className="likes footer-item">
-                    <button className="like-btn" onClick={Onlike}>{liked ? '🖤': '🤍'}</button> {likes}
+                    <img src="dark-heart.png" alt="heart" className="heart-img" /> {recipe.likes}
                 </div>
             </div>
+        </Link>
         </div>
      );
 }

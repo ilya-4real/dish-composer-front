@@ -92,7 +92,7 @@ main {
 }
 
 .likes {
-  width: 15%;
+  width: 20%;
   margin-right: 5px;
 }
 
@@ -108,29 +108,47 @@ main {
 
 .active-btn {
   height: 40px;
-  box-shadow: 0px 3px 3px #c8c8c7;
+  box-shadow: 0px 3px 3px #cd942a;
   margin: 0 auto;
   margin-top: 30px;
   width: 80%;
   background-color: #ffb936;
   position: relative;
-  border:solid 1px #e3e3e0;
+  border:solid 1px orange;
   border-radius: 10px;
 }
 
-.active-btn:active {
-  background-color: #cd942a;
+.square-btn {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  margin-top: 10px; 
+  border:solid 1px orange;
+  border-radius: 10px;
+  box-shadow: 0px 3px 3px #cd942a;
+  background-color: #ffb936;
+  color: white;
+}
+
+.square-btn:active {
+  background-color: #e1a22e;
   box-shadow: 0px 0px;
-  transform: translateY(3px);
+  transform: translateY(2px);
+}
+
+.active-btn:active {
+  background-color: #e1a22e;
+  box-shadow: 0px 0px;
+  transform: translateY(2px);
 }
 
 .recipe-detail {
   margin: 0 auto;
   width: 95%;
-  border: solid 1px orange;
   border-radius: 5px;
   background-color: white;
   padding: 15px;
+  box-shadow: 0px 3px 10px #cd942a;
 }
 
 .recipe-card h3 {
@@ -248,4 +266,64 @@ a {
   display: flex;
   align-items: center;
   /* justify-content: center; */
+}
+
+.ingredient-feild {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.select-input {
+  border: none;
+  height: 40px;
+  margin-top: 10px;
+  width: 25%;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.form-input {
+  border: none;
+  height: 40px;
+  margin-top: 15px;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.form-input-row {
+  width: 50%;
+  border: none;
+  height: 40px;
+  text-align: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.mt-150 {
+  margin-top: 150px;
+}
+
+.heart-img {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.mx-auto {
+  margin: 0 auto;
+}
+
+.w-50 {
+  width: 50%;
 }
