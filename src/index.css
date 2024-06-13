@@ -25,7 +25,6 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 40px;
   background-color: #FFE5B4;
 }
 
@@ -144,6 +143,7 @@ main {
 
 .recipe-detail {
   margin: 0 auto;
+  margin-top: 30px;
   width: 95%;
   border-radius: 5px;
   background-color: white;
@@ -198,7 +198,7 @@ a {
 
 .search {
   width: 95%;
-  margin: auto auto;
+  margin: 30px auto;
   display: flex;
   flex-direction: row;
   box-shadow: 0px 5px 10px #cd942a;
@@ -227,10 +227,10 @@ a {
 
 .favorite-header{
   margin: 0 auto;
-  width: 95%;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  height: 35px;
+  height: 50px;
 }
 
 .main-color {
@@ -274,7 +274,6 @@ a {
   width: 95%;
   margin: 0 auto;
   margin-top: 15px;
-  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -292,7 +291,6 @@ a {
   border: none;
   height: 40px;
   margin-top: 15px;
-  border-radius: 10px;
   text-align: center;
   width: 90%;
   margin: 0 auto;
@@ -326,4 +324,80 @@ a {
 
 .w-50 {
   width: 50%;
+}
+
+.flex {
+  display: flex;
+
+}
+
+.recipe-form {
+  display: flex;
+  margin: 0 auto;
+  width: 95%;
+  background-color: white;
+  border:solid 1px orange;
+  border-radius: 10px;
+  box-shadow: 0px 4px 5px #cd942a;
+}
+
+.common-input {
+  border: none;
+  height: 40px;
+  text-align: center;
+}
+
+.flex-div {
+  display: flex;
+}
+
+.single-input {
+  width: 95%;
+  border-radius: 5px;
+}
+
+.area-input {
+  border-radius: 7px;
+  border: none;
+}
+
+.w-95 {
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.minus-btn {
+  border: none;
+  background: none;
+  width: 50px;
+  font-size: 30px;
+}
+
+
+.create-btn {
+  height: 40px;
+  margin: 20px auto;
+  background-color: #ffb936;
+  box-shadow: 0px 3px 3px #cd942a;
+  border: none;
+  padding: 0 40px;
+  border-radius: 10px;
+  color: white;
+}
+
+.main-form {
+  margin-top: 40px;
+}
+
+.error-msg {
+  width: 95%;
+  color: white;
+  border:solid 1px red;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgb(248, 146, 146);
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 20px;
 }

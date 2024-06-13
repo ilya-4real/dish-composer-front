@@ -6,16 +6,17 @@ import Compounds from './components/compounds';
 import Random from './components/random';
 import RecipeDetail from './components/recipedetail';
 import CompoundForm from './components/forms/compound';
+import RecipeForm from './components/forms/recipeform';
+import { useTelegram } from './hooks/telegram';
 
-// const tg = window.Telegram.WebApp;
 
 function App() {
-
-  // const user_data = tg.initDataUnsafe.user
+  // const { username } = useTelegram()
 
   return (
     <Router>
       <div className="wrapper">
+        {/* <p>{username}</p> */}
         <Routes>
           <Route exact path='/' element={<Popular/>}></Route>
           <Route exact path="/my/own" element={<Favorite />}></Route>
@@ -24,6 +25,7 @@ function App() {
           <Route exact path='/compounds/new' element={<CompoundForm/>}></Route>
           <Route exact path='/random' element={<Random/>}></Route>
           <Route exact path='/recipe/:id/' element={<RecipeDetail/>}></Route>
+          <Route exact path='/recipe/new/' element={<RecipeForm/>}></Route>
         </Routes>
         </div>
         <Navigator />

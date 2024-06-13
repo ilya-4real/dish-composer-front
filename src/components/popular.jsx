@@ -30,8 +30,8 @@ const Popular = () => {
         <div className="content">
             <Searchbar />
             {loading ? <Loader /> :
-            recipes.map((recipe) => (
-                <RecipeCard key={recipe.id} recipe={recipe} />
+            recipes.map((recipe, index) => (
+                <RecipeCard key={index} recipe={recipe} />
             ))
             }
         </div>

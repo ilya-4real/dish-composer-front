@@ -58,11 +58,11 @@ const RecipeDetail = () => {
                             <center><h4>{recipe.title}</h4></center>
                         </div>
                         <p>{recipe.description}</p>
-                        {recipe.components.map((component) => (
-                            <div className="compound">
+                        {recipe.components.map((component, index) => (
+                            <div key={index} className="compound">
                                 <center><h5>{component.title}</h5></center>
-                                {component.ingredients.map((ingredient) => (
-                                    <div className="ingredient">
+                                {component.ingredients.map((ingredient, index) => (
+                                    <div key={index} className="ingredient">
                                         <div className="ingredient-title">{ingredient.title}</div>
                                         <div className="ingredient-weight">{ingredient.amount}g</div>
                                     </div>

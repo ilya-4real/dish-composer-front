@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
+
 const OwnRecipes = () => {
     return ( 
         <>
-            <button className="active-btn">Create new</button>
+            <Link to="/recipe/new/" className="flex">
+                <button className="active-btn">New recipe</button>
+            </Link>
             </>
      );
 }
