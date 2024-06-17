@@ -9,7 +9,7 @@ const Popular = () => {
     const [loading, setLoading] = useState(true)
 
 
-    useEffect( () => {
+    useEffect(() => {
         const FetchData = () => {
             try {
                 Api.get('recipies/popular?limit=10&offset=0').then((resp) => {
@@ -17,9 +17,9 @@ const Popular = () => {
                     setTimeout(() => {
                         setLoading(false)
                     }, 200)
-                    
+
                 })
-            } catch(err) {
+            } catch (err) {
                 console.log(err)
             }
         }
@@ -27,14 +27,16 @@ const Popular = () => {
     }, [])
 
     return (
-        <div className="content">
+        <>
             <Searchbar />
-            {loading ? <Loader /> :
-            recipes.map((recipe, index) => (
-                <RecipeCard key={index} recipe={recipe} />
-            ))
-            }
-        </div>
+            <div className="content">
+                {loading ? <Loader /> :
+                    recipes.map((recipe, index) => (
+                        <RecipeCard key={index} recipe={recipe} />
+                    ))
+                }
+            </div>
+        </>
     );
 }
 
