@@ -21,7 +21,7 @@ function App() {
           <Route exact path='/' element={<Popular/>}></Route>
           <Route exact path="/my/own" element={<Favorite />}></Route>
           <Route exact path="my/liked" element={<Favorite />}></Route>
-          <Route exact path='/compounds' element={<Compounds/>}></Route>
+          <Route exact path='/compounds/:type' element={<Compounds/>}></Route>
           <Route exact path='/compounds/new' element={<CompoundForm/>}></Route>
           <Route exact path='/random' element={<Random/>}></Route>
           <Route exact path='/recipe/:id/' element={<RecipeDetail/>}></Route>

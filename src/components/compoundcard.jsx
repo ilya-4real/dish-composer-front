@@ -1,11 +1,12 @@
-const CompoundCard = () => {
+const CompoundCard = ({ compound }) => {
+    console.log(compound)
     return ( 
         <div className="compound-card">
             <div className="compound-title">
-                <h4>title</h4>
+                <h4>{compound.title}</h4>
             </div>
             <div className="compound-author">
-                author: @il_ya_420
+                category: {compound.category}
             </div>
         </div>
      );
