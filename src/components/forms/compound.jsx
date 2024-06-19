@@ -1,10 +1,13 @@
 import { useState } from "react";
+import Api from "../../api/api";
+import { useNavigate } from "react-router-dom";
 
 const CompoundForm = () => {
     const [title, setTitle] = useState('')
     const [ingredients, setIngredients] = useState([{ title: "", amount: 0 }])
     const [category, setCategory] = useState("none")
-    const [error, setError] = useState('')
+    const [err, setErr] = useState('')
+    const navigate = useNavigate()
 
     const onPlusClick = (event) => {
         event.preventDefault();
@@ -15,15 +18,18 @@ const CompoundForm = () => {
         const ingrs = [...ingredients]
         ingrs[index][event.target.name] = event.target.value
         setIngredients(ingrs)
+        checkData()
     }
 
     const handleCategoryChange = (event) => {
         console.log(event.target.value)
         setCategory(event.target.value)
+        checkData()
     }
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value)
+        checkData()
     }
 
     const onMinusCLick = (event, index) => {
@@ -33,8 +39,41 @@ const CompoundForm = () => {
         setIngredients(ingrs)
     }
 
+    const sendData = (component) => {
+        Api.post('/components', component).then((resp) => {
+            console.log(resp)
+        })
+    }
+
+    const checkData = () => {
+        setErr("")
+        ingredients.map((ingredient, index) => {
+            if (ingredient.title.length < 2 || ingredient.amount < 2) {
+                setErr("Incorrect ingredient data")
+            }
+            if (category === 'none') {
+                setErr("Category must be selected")
+            }
+            if (title.length <= 2) {
+                setErr("Title shouldn't be that short")
+            }
+        })
+
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault()
+        if (!err) {
+            console.log(err.length)
+            const component = {
+                title: title,
+                category: category,
+                ingredients: ingredients,
+            }
+            console.log(component)
+            // sendData()
+            navigate('/compounds/meat')
+        }
 
     }
 
@@ -42,13 +81,17 @@ const CompoundForm = () => {
         <>
             <form onSubmit={handleSubmit} className="main-form">
                 <div className="flex-column">
-                    <input 
-                    className="form-input" 
-                    type="text" 
-                    placeholder="compound title"  
-                    value={title}
-                    onChange={handleTitleChange}/>
-                    <select name="type-select" id="" onChange={handleCategoryChange} className="form-input select-input marg5" defaultValue={'none'}>
+                    <input
+                        className="form-input"
+                        type="text"
+                        placeholder="compound title"
+                        value={title}
+                        onChange={handleTitleChange} />
+                    <select 
+                    name="type-select" 
+                    id="" onChange={handleCategoryChange} 
+                    className="form-input select-input marg5" value={category}
+                    defaultValue={'none'}>
                         <option disabled value="none">Select compound category...</option>
                         <option value="meat">Meat</option>
                         <option value="garnish">Garnish</option>
@@ -82,6 +125,12 @@ const CompoundForm = () => {
                         </div>
                     ))}
                     <button className="square-btn" onClick={onPlusClick}>+</button>
+                    {err ?
+                        <div className="error-msg">
+                            {err}
+                        </div> :
+                        <div></div>
+                    }
                     <button onClick={handleSubmit} className="create-btn">Create</button>
                 </div>
             </form>

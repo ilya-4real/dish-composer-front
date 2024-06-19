@@ -26,6 +26,22 @@ const RecipeForm = () => {
         }
     }
 
+    const checkData = () => {
+        ingredients.map((ingredient, index) => {
+            if (!ingredient.title || ingredient.amount <= 0) {
+                setError("Insert correct ingredients data")
+            }
+        })
+
+        if (!recipeDescr) {
+            setError("Provide recipe description")
+        }
+
+        if (!recipeTitle) {
+            setError("Provide recipe title")
+        }
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault()
         const recipe = {
@@ -40,20 +56,6 @@ const RecipeForm = () => {
             ]
         }
 
-        ingredients.map((ingredient, index) => {
-            if (!ingredient.title || ingredient.amount <= 0)  {
-                setError("Insert correct ingredients data")
-            }
-        })
-
-        if (!recipeDescr) {
-            setError("Provide recipe description")
-        }
-
-        if (!recipeTitle) {
-            setError("Provide recipe title")
-        }
-        
         if (!error) {
             console.log("here")
             sendData(recipe)
@@ -64,16 +66,19 @@ const RecipeForm = () => {
     const handleTitleChange = (event) => {
         setRecipeTitle(event.target.value)
         console.log(recipeTitle)
+        checkData()
     }
 
     const handleDescriptionChange = (event) => {
         setRecipeDescr(event.target.value)
+        checkData()
     }
 
     const handleIngrChange = (event, index) => {
         const ingrs = [...ingredients]
         ingrs[index][event.target.name] = event.target.value
         setIngredients(ingrs)
+        checkData()
     }
 
     const onPlusIngredient = (e) => {
