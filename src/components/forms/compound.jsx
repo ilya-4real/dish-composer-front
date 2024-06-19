@@ -3,6 +3,7 @@ import { useState } from "react";
 const CompoundForm = () => {
     const [title, setTitle] = useState('')
     const [ingredients, setIngredients] = useState([{ title: "", amount: 0 }])
+    const [category, setCategory] = useState("none")
     const [error, setError] = useState('')
 
     const onPlusClick = (event) => {
@@ -14,6 +15,11 @@ const CompoundForm = () => {
         const ingrs = [...ingredients]
         ingrs[index][event.target.name] = event.target.value
         setIngredients(ingrs)
+    }
+
+    const handleCategoryChange = (event) => {
+        console.log(event.target.value)
+        setCategory(event.target.value)
     }
 
     const handleTitleChange = (event) => {
@@ -42,6 +48,12 @@ const CompoundForm = () => {
                     placeholder="compound title"  
                     value={title}
                     onChange={handleTitleChange}/>
+                    <select name="type-select" id="" onChange={handleCategoryChange} className="form-input select-input marg5" defaultValue={'none'}>
+                        <option disabled value="none">Select compound category...</option>
+                        <option value="meat">Meat</option>
+                        <option value="garnish">Garnish</option>
+                        <option value="sauce">Sauce</option>
+                    </select>
                     {ingredients.map((ingredient, index) => (
                         <div key={index} className="ingredient-feild">
                             <input
