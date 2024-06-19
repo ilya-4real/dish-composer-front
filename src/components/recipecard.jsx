@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const RecipeCard = ({ recipe }) => {
@@ -17,7 +16,7 @@ const RecipeCard = ({ recipe }) => {
             <div className="recipe-footer">
                 <div className="author footer-item">author: @{recipe.author}</div>
                 <div className="likes footer-item">
-                    <img src="dark-heart.png" alt="heart" className="heart-img" /> {recipe.likes}
+                    <img src="/dark-heart.png" alt="heart" className="heart-img" /> {recipe.likes}
                 </div>
             </div>
         </Link>

@@ -302,13 +302,7 @@ a {
 }
 
 .select-input {
-  border: none;
-  height: 40px;
-  margin-top: 10px;
-  width: 25%;
-  background-color: white;
-  border-radius: 5px;
-  text-align: center;
+  margin: 20px;
 }
 
 .form-input {
@@ -424,4 +418,22 @@ a {
   margin: 0 auto;
   margin-top: 30px;
   padding: 20px;
+}
+
+.marg5 {
+  margin-top: 10px;
+}
+
+.empty-content {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 300px;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.empty-content center {
+  color: #cd942a;
 }

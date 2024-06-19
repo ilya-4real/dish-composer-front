@@ -10,11 +10,18 @@ const RecipeDetail = () => {
     const [recipe, setRecipe] = useState({});
     const [loading, setLoading] = useState(true)
 
+    const config = {
+        headers: {
+            Authorization: "il_ya_420"
+        }
+    }
+
     useEffect(() => {
 
         const fetchData = () => {
-            Api.get(`/recipies/${id}`).then((resp) => {
+            Api.get(`/recipies/${id}`, config).then((resp) => {
                 setRecipe(resp.data)
+                setLiked(resp.data.is_liked)
                 setLoading(false)
             })
         }
@@ -22,7 +29,7 @@ const RecipeDetail = () => {
     }, [])
     const changeLike = () => {
         try {
-            Api.post(`/recipies/${id}/like`, { author_id: "il_ya_420" })
+            Api.post(`/recipies/${id}/like`, null, config)
         } catch (err) {
             console.log(err)
         }
