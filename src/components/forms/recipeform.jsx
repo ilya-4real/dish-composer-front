@@ -27,6 +27,7 @@ const RecipeForm = () => {
     }
 
     const checkData = () => {
+        setError("")
         ingredients.map((ingredient, index) => {
             if (!ingredient.title || ingredient.amount <= 0) {
                 setError("Insert correct ingredients data")

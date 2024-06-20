@@ -48,13 +48,13 @@ const CompoundForm = () => {
     const checkData = () => {
         setErr("")
         ingredients.map((ingredient, index) => {
-            if (ingredient.title.length < 2 || ingredient.amount < 2) {
+            if (ingredient.title.length <= 5 || ingredient.amount < 2) {
                 setErr("Incorrect ingredient data")
             }
             if (category === 'none') {
                 setErr("Category must be selected")
             }
-            if (title.length <= 2) {
+            if (title.length <= 5) {
                 setErr("Title shouldn't be that short")
             }
         })
@@ -67,11 +67,11 @@ const CompoundForm = () => {
             console.log(err.length)
             const component = {
                 title: title,
-                category: category,
+                component_category: category,
                 ingredients: ingredients,
             }
             console.log(component)
-            // sendData()
+            sendData(component)
             navigate('/compounds/meat')
         }
 
@@ -91,7 +91,7 @@ const CompoundForm = () => {
                     name="type-select" 
                     id="" onChange={handleCategoryChange} 
                     className="form-input select-input marg5" value={category}
-                    defaultValue={'none'}>
+                    >
                         <option disabled value="none">Select compound category...</option>
                         <option value="meat">Meat</option>
                         <option value="garnish">Garnish</option>

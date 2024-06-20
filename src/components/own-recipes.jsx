@@ -4,22 +4,23 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Api from "../api/api";
 import Loader from "./loader";
+import { useTelegram } from "../hooks/telegram";
 import EmptyContent from "./empty-content";
 
 const OwnRecipes = () => {
     const [loading, setLoading] = useState(true)
     const [recipes, setRecipes] = useState([])
+    const { username } = useTelegram()
 
     const fetchData = () => {
         const config = {
             headers: {
-                Authorization: "il_ya_420"
+                Authorization: username
             }
         }
         Api.get('users/recipes', config).then((resp) => {
             console.log(resp.data)
-            // setRecipes(resp.data.recipes)
-            setRecipes([])
+            setRecipes(resp.data.recipes)
             setLoading(false)
         })
     }

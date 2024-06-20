@@ -3,16 +3,18 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import Api from "../api/api";
 import Loader from "./loader";
+import { useTelegram } from "../hooks/telegram";
 
 const RecipeDetail = () => {
     const { id } = useParams()
     const [liked, setLiked] = useState(false);
     const [recipe, setRecipe] = useState({});
     const [loading, setLoading] = useState(true)
+    const { username } = useTelegram()
 
     const config = {
         headers: {
-            Authorization: "il_ya_420"
+            Authorization: username
         }
     }
 
@@ -55,9 +57,9 @@ const RecipeDetail = () => {
                                 <div className="empty"></div>
                                 <div className="recipe-btn">
                                     <button className="like-btn" onClick={onLike}>
-                                        {liked ? 
-                                        <img src="/dark-heart.png" alt="ddd" /> :
-                                        <img src="/empty-heart.png" alt="ddd" />
+                                        {liked ?
+                                            <img src="/dark-heart.png" alt="ddd" /> :
+                                            <img src="/empty-heart.png" alt="ddd" />
                                         }
                                     </button>
                                 </div>

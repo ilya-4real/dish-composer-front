@@ -3,16 +3,17 @@ import { useState, useEffect } from "react";
 import Loader from "./loader";
 import Api from "../api/api";
 import EmptyContent from "./empty-content";
-
+import { useTelegram } from "../hooks/telegram";
 
 const OwnLiked = () => {
     const [loading, setLoading] = useState(true)
     const [recipes, setRecipes] = useState([])
+    const {username} = useTelegram()
 
     const fetchData = () => {
         const config = {
             headers:
-                { Authorization: "il_ya_420" }
+                { Authorization: username}
         }
         Api.get('users/liked', config).then((resp) => {
             console.log(resp)
